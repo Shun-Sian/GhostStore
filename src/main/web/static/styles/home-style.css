@@ -1,0 +1,55 @@
+html {
+	width: 100%;
+	height: 100%;
+}
+body {
+	height: 100%;
+	width: 100%;
+	background-image: url("../../assets/temple.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.container {
+	width: 100%;
+	height: 100%;
+	display:grid;
+	grid-template-areas:". . . . . . . . . . n n"
+						". . . p p p p p p . . .";
+						
+	grid-template-columns:repeat(12,1fr);
+	grid-template-rows: min-content;
+	grid-column-gap:20px;
+}
+
+.nav ul {
+	display: flex;
+	justify-content: space-evenly;
+    padding: 25px 0;
+    box-shadow: 1px 1px 7px #666;
+    margin: auto;
+}
+
+li {
+   list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+.nav-item a {
+	transition: color .5s;
+	font-size: 18px;
+	text-transform:uppercase;
+	color: black;
+}
+
+.nav-item a:hover {
+	color: red;
+}
+
+#pageWrapper {
+	grid-area:p;
+	
+}
