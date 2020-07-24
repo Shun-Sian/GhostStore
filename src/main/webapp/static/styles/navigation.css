@@ -1,4 +1,4 @@
-.auth-nav {
+nav {
 	padding: 15px 0px;
 	box-shadow: 1px 1px 5px #000;
     width: auto;
@@ -8,16 +8,13 @@
 	margin-top: 10px;
 }
 
-.auth-nav ul {
+nav > ul {
     display: flex;
     justify-content: space-around;
 }
 
-.auth-nav-item {
-	
-}
 
-.auth-nav-item a {
+nav > ul > li > a {
 	color:black;
 	font-size: 20px;
 	text-transform:uppercase;

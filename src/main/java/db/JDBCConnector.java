@@ -29,6 +29,8 @@ public class JDBCConnector {
 	private String CREATE_PRODUCTS_TABLE = "CREATE TABLE IF NOT EXISTS products("
 			+ "product_id INT NOT NULL AUTO_INCREMENT, "
 			+ "product_name VARCHAR(255) NOT NULL, "
+			+ "product_description VARCHAR(255), "
+			+ "product_price DOUBLE, "
 			+ "PRIMARY KEY (product_id) "
 			+ ");";
 	

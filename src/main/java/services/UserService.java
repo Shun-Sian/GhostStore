@@ -21,7 +21,7 @@ public interface UserService {
 	 * @return - if not successful returns null
 	 * otherwise returns the user that has logged
 	 */
-	String login(String username,String password);
+	User login(String username, String password);
 	
-	User login(String authToken);
+	void logout(String username);
 }

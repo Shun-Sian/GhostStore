@@ -13,8 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException;
 
 import entities.User;
-import models.Response;
-import models.Token;
 import repositories.UserRepository;
 import services.UserService;
 import services.impl.UserServiceImpl;
@@ -32,26 +30,22 @@ public class LoginServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("static/login.html").forward(request, response);
+		request.getRequestDispatcher("jsp/login.jsp").forward(request, response);
 		
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			String isToken = request.getParameter("token");
-			if(isToken != null) {
-			Token authToken = RequestIOUtils.parseJSONtoObject(request, Token.class);
-			User u = userService.login(authToken.getToken());
-			RequestIOUtils.writeJSONResp(response, u);
-			}else {
-			User user = RequestIOUtils.parseJSONtoObject(request, User.class);
-			String token = userService.login(user.getUsername(),user.getPassword());
-			if(token == null) {
-				Response responseBody = new Response("error","Incorrect Username/Password");
-				RequestIOUtils.writeJSONResp(response, responseBody);
-			}else {
-				RequestIOUtils.writeJSONResp(response, new Response("token",token));
-			}
-		}
+		 	String username = request.getParameter("username");
+	        String password = request.getParameter("password");
+	        User user = userService.login(username, password);
+	        if (user == null) {
+	            request.getSession().setAttribute("loginError", "Incorrect Username/Password");
+	            request.getRequestDispatcher("jsp/login.jsp").forward(request, response);
+	        } else {
+	            request.getSession().setAttribute("success", "Logged In Successfully");
+	            request.getSession().setAttribute("loginError", null);
+	            request.getSession().setAttribute("user", user);
+	            request.getRequestDispatcher("index.jsp").forward(request, response);
+	        }
+	    }
 	}
-}
-
