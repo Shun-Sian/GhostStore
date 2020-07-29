@@ -37,15 +37,18 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		 	String username = request.getParameter("username");
 	        String password = request.getParameter("password");
+
 	        User user = userService.login(username, password);
 	        if (user == null) {
-	            request.getSession().setAttribute("loginError", "Incorrect Username/Password");
-	            request.getRequestDispatcher("jsp/login.jsp").forward(request, response);
+		        request.getSession().setAttribute("loginError", "Incorrect Username/Password");
+		        request.getRequestDispatcher("jsp/login.jsp").forward(request, response);
 	        } else {
-	            request.getSession().setAttribute("success", "Logged In Successfully");
-	            request.getSession().setAttribute("loginError", null);
-	            request.getSession().setAttribute("user", user);
-	            request.getRequestDispatcher("index.jsp").forward(request, response);
-	        }
+		        request.getSession().setAttribute("success", "Logged In Successfully");
+		        request.getSession().setAttribute("loginError", null);
+		        request.getSession().setAttribute("user", user);
+		        request.getRequestDispatcher("index.jsp").forward(request, response);
+		       
+		   }
+		   
 	    }
 	}

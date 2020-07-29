@@ -34,10 +34,11 @@ public class RegisterServlet extends HttpServlet {
 		String pass = request.getParameter("password");
 		User u = userService.registerUser(pass, username);
 		if(u == null) {
-			response.getWriter().write("Register failed");
+			request.getSession().setAttribute("registerError", "Username already exists");
+            request.getRequestDispatcher("jsp/register.jsp").forward(request, response);
 		}
 		else {
-			request.getRequestDispatcher("static/login.html").forward(request, response);;
+			request.getRequestDispatcher("jsp/login.jsp").forward(request, response);;
 		}
 	}
 }

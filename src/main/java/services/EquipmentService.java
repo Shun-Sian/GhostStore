@@ -5,8 +5,10 @@ import java.util.List;
 import entities.Equipment;
 
 public interface EquipmentService {
-
-	void addEquipment(Equipment equipment);
 	
 	List<Equipment> getAll();
+	
+	Equipment getById(int id);
+	
+	void addEquipment(String equipmentName, String description, double price, String seller);
 }

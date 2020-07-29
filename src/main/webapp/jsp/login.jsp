@@ -13,6 +13,7 @@
 <body>
 <div class='container'>
     <jsp:include page="./navigation.jsp"/>
+    <jsp:include page="./home-nav.jsp"/>
     <main id="pageWrapper">
         <div class='auth-container'>
             <form class="form form-login" action="login" id="loginForm" method="post">

@@ -12,10 +12,12 @@
 <body>
 <div class='container'>
     <jsp:include page="jsp/navigation.jsp"/>
+   
+	<main id="pageWrapper">
+        <jsp:include page="jsp/mainPageNav.jsp"/>
+        <%--  CONTENT --%>
+    </main>
 
-</div>
-<div class='container'>
-	 <jsp:include page="jsp/mainPageNav.jsp"/>
 </div>
 <script src="./lib/jquery-3.5.1.min.js"></script>
 </body>

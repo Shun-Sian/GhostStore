@@ -12,6 +12,8 @@ public class Equipment {
 	
 	private String description;
 	
+	private String seller; // username 
+	
 	public Equipment() {
 		
 	}
@@ -22,7 +24,17 @@ public class Equipment {
 		equipment.setName((String)databaseEntry.get("product_name"));
 		equipment.setDescription((String)databaseEntry.get("product_description"));
 		equipment.setPrice((Double)databaseEntry.get("product_price"));
+		equipment.setSeller((String)databaseEntry.get("product_seller"));
+		
 		return equipment;
+	}
+
+	public String getSeller() {
+		return seller;
+	}
+
+	public void setSeller(String seller) {
+		this.seller = seller;
 	}
 
 	public int getId() {

@@ -7,7 +7,6 @@ import entities.User;
 
 public class LoggedUsers {
 
-	//list
 	private static final Map<String, User> LOGGED_IN_USERS = new HashMap<>();
 	
 	private LoggedUsers() {

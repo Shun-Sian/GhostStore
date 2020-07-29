@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -11,10 +12,17 @@
 <body>
 <div class='container'>
     <jsp:include page="./navigation.jsp" />
-
+	<jsp:include page="./home-nav.jsp"/>
     <main id="pageWrapper">
         <div class="auth-container">
             <form class="form" action="register" method="post">
+                
+                 <c:choose>
+                    <c:when test='${registerError != null}'>
+                        <span class="form-error">${registerError}</span>
+                    </c:when>
+                </c:choose>
+                
                 <div class="form-control">
                     <label for="username">Please, enter your username</label>
                     <input id="username"

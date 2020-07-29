@@ -22,6 +22,27 @@
   	<servlet-name>LogoutServlet</servlet-name>
   	<servlet-class>servlets.LogoutServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<description>
+  	</description>
+  	<display-name>AddEquipmentServlet</display-name>
+  	<servlet-name>AddEquipmentServlet</servlet-name>
+  	<servlet-class>servlets.AddEquipmentServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<description>
+  	</description>
+  	<display-name>ListEquipmentServlet</display-name>
+  	<servlet-name>ListEquipmentServlet</servlet-name>
+  	<servlet-class>servlets.ListEquipmentServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<description>
+  	</description>
+  	<display-name>SingleEquipmentServlet</display-name>
+  	<servlet-name>SingleEquipmentServlet</servlet-name>
+  	<servlet-class>servlets.SingleEquipmentServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>RegisterServlet</servlet-name>
   	<url-pattern>/RegisterServlet</url-pattern>
@@ -33,5 +54,17 @@
   <servlet-mapping>
   	<servlet-name>LogoutServlet</servlet-name>
   	<url-pattern>/LogoutServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AddEquipmentServlet</servlet-name>
+  	<url-pattern>/AddEquipmentServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ListEquipmentServlet</servlet-name>
+  	<url-pattern>/ListEquipmentServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SingleEquipmentServlet</servlet-name>
+  	<url-pattern>/SingleEquipmentServlet</url-pattern>
   </servlet-mapping>
 </web-app>

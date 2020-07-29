@@ -31,6 +31,7 @@ public class JDBCConnector {
 			+ "product_name VARCHAR(255) NOT NULL, "
 			+ "product_description VARCHAR(255), "
 			+ "product_price DOUBLE, "
+			+ "product_seller VARCHAR(255), "
 			+ "PRIMARY KEY (product_id) "
 			+ ");";
 	
@@ -71,7 +72,7 @@ public class JDBCConnector {
 			props.setProperty("user", "root");
 			props.setProperty("password", "q6olinio6343");
 			
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/test_db?createDatabaseIfNotExist=true",props);
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/test_db?createDatabaseIfNotExist=true&useLegacyDatetimeCode=false&serverTimezone=UTC",props);
 
 		}catch (Exception e) {		
 			e.printStackTrace();

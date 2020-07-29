@@ -33,12 +33,15 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public User login(String username, String password) {
 		User user = userRep.getUser(username);
-		if(!Objects.equals(user.getPassword(), password)) {
+		if(user != null && !password.equals(user.getPassword())) {
 			return null;
 		}
-			LoggedUsers.addUser(user);
-			return user;
+		if(user ==null) {
+			return null;
 		}
+		LoggedUsers.addUser(user);
+		return user;
+	}
 
 	@Override
 	public void logout(String username) {

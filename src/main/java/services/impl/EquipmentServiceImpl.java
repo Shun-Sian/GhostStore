@@ -14,19 +14,23 @@ public class EquipmentServiceImpl implements EquipmentService{
 	 public EquipmentServiceImpl(EquipmentRepository equipmentRepository) {
 		 this.equipmentRepository = equipmentRepository;
 	 }
-	 
-	@Override
-	public void addEquipment(Equipment equipment) {
-		//TODO Validate etc etc
-		
-		
-		this.equipmentRepository.addEquipment(equipment.getName(), equipment.getDescription(), equipment.getPrice());
-	}
+	 	
+	 @Override
+	 public void addEquipment(String equipmentName, String description, double price, String seller) {
+		this.equipmentRepository.addEquipment(equipmentName, description, price, seller);
+		 
+	 }
 
 	@Override
 	public List<Equipment> getAll() {
 		return this.equipmentRepository.getAll();
 	}
+
+	@Override
+	public Equipment getById(int id) {
+		return this.equipmentRepository.findById(id);
+	}
+
 
 
 }
